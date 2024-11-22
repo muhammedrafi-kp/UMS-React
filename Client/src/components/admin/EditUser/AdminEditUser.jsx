@@ -102,6 +102,7 @@ const AdminEditUser = () => {
             formData.append('profileImage', userData.profile_url);
         }
 
+        console.log('Form data : ',formData)
         try {
             const response = await API.put(`/admin/edit-user/${userId}`, formData, {
                 headers: {

@@ -121,7 +121,7 @@ const getUserData = async (req, res) => {
 const editProfile = async (req, res) => {
     try {
         const { name, email, mobile } = req.body;
-        const userId = req.user.userId;
+        const {payload} = req.user;
 
         let profile_url;
 
@@ -130,7 +130,7 @@ const editProfile = async (req, res) => {
         }
 
         const updatedUser = await User.findByIdAndUpdate(
-            userId,
+            payload,
             {
                 name,
                 email,

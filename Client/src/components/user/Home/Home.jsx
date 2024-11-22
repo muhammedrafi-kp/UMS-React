@@ -22,19 +22,16 @@ const Home = () => {
     const token = localStorage.getItem('userToken');
     console.log("token : ", token)
 
-    //  if(!token) {
-    //   console.error('No token found in local storage');
-    //   navigate('/login');
-    // }
-    
       const fetchUserData = async () => {
         try {
-          const response = await API.get('/user-details', {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          });
+          // const response = await API.get('/user-details', {
+          //   headers: {
+          //     Authorization: `Bearer ${token}`
+          //   }
+          // });
 
+          const response = await API.get('/user-details');
+          
           if (response.data.success) {
             console.log("data got")
             setUserData(response.data.user);

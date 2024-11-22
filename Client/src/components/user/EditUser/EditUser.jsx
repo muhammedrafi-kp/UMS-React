@@ -24,11 +24,12 @@ const EditUser = () => {
         const fetchUserData = async () => {
             const token = localStorage.getItem('userToken');
             try {
-                const response = await API.get('/user-details', {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
+                // const response = await API.get('/user-details', {
+                //     headers: {
+                //         Authorization: `Bearer ${token}`
+                //     }
+                // });
+                const response = await API.get('/user-details');
                 if (response.data.success) {
                     setUserData(response.data.user);
                 } else {
@@ -89,17 +90,19 @@ const EditUser = () => {
         formData.append('name', userData.name);
         formData.append('mobile', userData.mobile);
 
+        console.log("name:",userData.name)
+        console.log("mobile:",userData.mobile)
         
         if (profileImage) {
             formData.append('profileImage', profileImage);
         }
 
-        console.log("formData : ",formData)
+        console.log("FormData : ",formData)
 
         try {
             const response = await API.put('/edit-profile', formData, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    // Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
                 }
             });

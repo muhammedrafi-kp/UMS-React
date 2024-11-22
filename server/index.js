@@ -10,7 +10,7 @@ import userRouter from './src/Routes/UserRoutes.js';
 dotenv.config();
 
 const { MONGODB_URI,PORT } = process.env;
-
+console.log(MONGODB_URI)
 mongoose.connect(MONGODB_URI);
 
 const app = express();
@@ -27,10 +27,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
-
-app.get('/', (req, res) => {
-    res.send("Hello world");
-});
 
 
 app.listen(PORT, () => {

@@ -56,8 +56,9 @@ const Dashboard = () => {
             toast.error('No token found, please log in again');
             navigate('/admin/login');
         }
-    }, [currentPage,navigate]);
+    }, [navigate]);
 
+    // [currentPage,navigate]
 
     const navigateToAddUser = () => {
         navigate('/admin/add-user');
