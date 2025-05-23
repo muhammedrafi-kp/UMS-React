@@ -1,0 +1,1 @@
+A full-stack User Management System built with the MERN stack (MongoDB, Express.js, React, Node.js). This application allows administrators to manage users through features like user creation, editing, deletion, and role-based access control. It includes authentication, form validations, responsive UI, and RESTful APIs.
